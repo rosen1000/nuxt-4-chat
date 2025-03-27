@@ -2,6 +2,6 @@
 	<UApp>
 		<NuxtRouteAnnouncer />
 		<!-- <NuxtWelcome /> -->
-		<UButton>click me</UButton>
+		<NuxtPage />
 	</UApp>
 </template>
