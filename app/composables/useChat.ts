@@ -13,9 +13,9 @@ export default function useChat() {
 		messages.value?.push(createMessage(message, 'user'));
 
 		setTimeout(() => {
-			createMessage(`You said:  ${message}`, 'assistant');
+			messages.value?.push(createMessage(`You said:  ${message}`, 'assistant'));
 		}, 200);
 	}
 
-	return [chat, messages, sendMessage];
+	return { chat, messages, sendMessage };
 }
