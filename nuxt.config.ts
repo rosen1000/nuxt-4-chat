@@ -9,4 +9,7 @@ export default defineNuxtConfig({
 	css: ['~/assets/css/styles.css'],
 
 	modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/ui'],
+	runtimeConfig: {
+		openaiApiKey: 'openai api key',
+	},
 });
