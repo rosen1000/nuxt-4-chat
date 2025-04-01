@@ -11,5 +11,6 @@ export default defineNuxtConfig({
 	modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/ui'],
 	runtimeConfig: {
 		openaiApiKey: 'openai api key',
+		aiModel: 'deepseek-r1:7b',
 	},
 });
