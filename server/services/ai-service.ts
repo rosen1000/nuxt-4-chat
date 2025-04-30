@@ -13,6 +13,7 @@ export async function generateChatResponse(model: LanguageModelV1, messages: Mes
 		const resp = await generateText({ model, messages });
 		return resp.text;
 	} catch (e) {
+		console.log(e);
 		return (e as Error).message;
 	}
 }
