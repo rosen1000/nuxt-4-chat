@@ -8,9 +8,14 @@ export default defineNuxtConfig({
 
 	css: ['~/assets/css/styles.css'],
 
-	modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/ui'],
+	modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/ui', '@nuxtjs/mdc'],
 	runtimeConfig: {
 		openaiApiKey: 'openai api key',
 		aiModel: 'llama3.1:8b',
+	},
+	mdc: {
+		highlight: {
+			theme: 'material-theme-palenight',
+		},
 	},
 });

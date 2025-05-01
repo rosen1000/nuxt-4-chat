@@ -24,7 +24,7 @@
 						}"
 					>
 						<div>
-							{{ message.content }}
+							<MarkdownRenderer :content="message.content" />
 						</div>
 					</div>
 
