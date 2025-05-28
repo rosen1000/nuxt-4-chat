@@ -1,5 +1,5 @@
 <template>
-	<div ref="scrollContainer" class="overflow-y-auto h-full box-border">
+	<div ref="scrollContainer" class="overflow-y-auto w-full h-full box-border">
 		<UContainer class="max-w-[800px] h-full">
 			<div v-if="!messages.length" class="empty-state">
 				<div class="empty-state-card">
@@ -32,7 +32,7 @@
 				</div>
 			</template>
 
-			<div class="message-form-container">
+			<div class="message-form-container w-full">
 				<div class="scroll-to-bottom-button-container">
 					<!-- TODO: Scroll event is not fired -->
 					<UButton

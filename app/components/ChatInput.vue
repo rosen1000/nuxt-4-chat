@@ -70,6 +70,7 @@ watch(
 .message-form-wrapper {
 	position: relative;
 	display: flex;
+	width: 100%;
 	align-items: center;
 	justify-content: center;
 	transition: all 0.15s ease-in-out;
