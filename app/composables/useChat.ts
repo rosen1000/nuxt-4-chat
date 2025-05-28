@@ -1,8 +1,10 @@
 import type { ChatMessage, Role } from '~/@types';
+import useChats from './useChats';
 
-export default function useChat() {
-	const chat = ref(MOCK_CHAT);
-	const messages = computed(() => chat.value.messages);
+export default function useChat(chatId: string) {
+	const { chats } = useChats();
+	const chat = computed(() => chats.value.find((c) => c.id == chatId));
+	const messages = computed(() => chat.value?.messages || []);
 
 	function createMessage(message: string, role: Role) {
 		const id = messages.value?.length.toString();
