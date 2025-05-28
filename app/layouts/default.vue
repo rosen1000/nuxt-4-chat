@@ -2,7 +2,7 @@
 	<div>
 		<AppHeader @toggle-sidebar="isSidebarOpen = !isSidebarOpen" />
 		<AppSidebar :is-open="isSidebarOpen" />
-		<main class="h-full transition-all duration-300 ease-in-out" :class="{ 'ml-64': isSidebarOpen }">
+		<main class="h-full pt-16 transition-all duration-300 ease-in-out" :class="{ 'ml-64': isSidebarOpen }">
 			<slot />
 		</main>
 	</div>
