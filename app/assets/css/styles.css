@@ -1,2 +1,13 @@
 @import 'tailwindcss' theme(static);
 @import '@nuxt/ui';
+
+@theme {
+	--font-sans: Inter, system-ui, sans-serif;
+	--color-green-500: #00c16a;
+}
+
+:root {
+	--ui-primary: var(--color-green-500);
+	--ui-bg: var(--color-gray-950);
+	--ui-bg-muted: var(--color-gray-900);
+}
