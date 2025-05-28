@@ -8,8 +8,8 @@
 <script lang="ts" setup>
 const { title } = useAppConfig();
 
-const { createChat } = useChats();
+const { createChatAndNavigate } = useChats();
 function handleCreateChat() {
-	createChat();
+	createChatAndNavigate();
 }
 </script>
