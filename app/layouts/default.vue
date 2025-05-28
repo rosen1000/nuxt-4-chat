@@ -1,8 +1,6 @@
 <template>
 	<div>
-		<header>
-			<!-- TODO: Future -->
-		</header>
+		<AppHeader />
 		<main class="h-full">
 			<slot />
 		</main>
