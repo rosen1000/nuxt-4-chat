@@ -15,8 +15,8 @@ function toggleSidebar() {
 <template>
 	<header class="app-header">
 		<div class="header-left">
-			<UButton icon="i-lucide-menu" color="primary" variant="soft" @click="toggleSidebar" class="h-8" />
-			<UButton icon="i-lucide-plus" @click="handleCreateChat" class="h-8"> New Chat </UButton>
+			<UButton icon="i-lucide-menu" color="primary" variant="soft" class="h-8" @click="toggleSidebar" />
+			<UButton icon="i-lucide-plus" class="h-8" @click="handleCreateChat"> New Chat </UButton>
 		</div>
 		<div class="header-title">
 			{{ appConfig.title }}
