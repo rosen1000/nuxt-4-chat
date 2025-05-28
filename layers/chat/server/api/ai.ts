@@ -1,4 +1,4 @@
-import type { Chat, ChatMessage } from '~/@types';
+import type { Chat, ChatMessage } from '~~/layers/chat/app/@types';
 import { createModel, generateChatResponse } from '../services/ai-service';
 
 export default defineEventHandler(async (event) => {

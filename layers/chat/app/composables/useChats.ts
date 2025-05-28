@@ -1,4 +1,4 @@
-import type { Chat } from '~/@types';
+import type { Chat } from '~~/layers/chat/app/@types';
 import { MOCK_CHAT } from '#imports';
 
 export default function useChats() {

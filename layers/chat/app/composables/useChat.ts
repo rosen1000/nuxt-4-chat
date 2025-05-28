@@ -1,4 +1,4 @@
-import type { ChatMessage, Role } from '~/@types';
+import type { ChatMessage, Role } from '~~/layers/chat/app/@types';
 import useChats from './useChats';
 
 export default function useChat(chatId: string) {

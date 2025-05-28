@@ -1,4 +1,4 @@
-import type { Project } from '~/@types';
+import type { Project } from '~~/layers/chat/app/@types';
 
 export default function useProjects() {
 	const projects = useState('projects', () => [MOCK_PROJECT]);
