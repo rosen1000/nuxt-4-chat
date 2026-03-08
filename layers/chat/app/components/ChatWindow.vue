@@ -1,6 +1,6 @@
 <template>
 	<div ref="scrollContainer" class="overflow-y-auto w-full h-full box-border">
-		<UContainer class="max-w-[800px] h-full">
+		<UContainer class="max-w-200 h-full">
 			<div v-if="!messages.length" class="empty-state">
 				<div class="empty-state-card">
 					<h2 class="empty-state-title">Start your chat</h2>

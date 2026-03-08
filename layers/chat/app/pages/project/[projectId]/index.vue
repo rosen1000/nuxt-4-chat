@@ -17,7 +17,7 @@ const chats = chatsInProject(projectId);
 							{{ chat.title || 'Untitled Chat' }}
 						</h3>
 					</template>
-					<p v-if="chat.messages?.length" class="text-sm line-clamp-2 text-(--ui-text-dimmed)">
+					<p v-if="chat.messages?.length" class="text-sm line-clamp-2 text-dimmed">
 						{{ chat.messages[chat.messages.length - 1]?.content }}
 					</p>
 				</UCard>

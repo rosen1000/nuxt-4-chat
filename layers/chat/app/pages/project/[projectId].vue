@@ -74,7 +74,7 @@ async function handleNewChat() {
 				<NuxtLink
 					v-if="onChatPage"
 					:to="`/project/${projectId}`"
-					class="leading-4 flex items-center mt-1 text-sm text-(--ui-text-muted)"
+					class="leading-4 flex items-center mt-1 text-sm text-muted"
 				>
 					<UIcon name="i-heroicons-arrow-left" class="mr-1" />
 					Back to Project

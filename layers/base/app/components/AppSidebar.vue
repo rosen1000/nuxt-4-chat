@@ -71,12 +71,12 @@ async function handleCreateProject() {
 
 <template>
 	<aside
-		class="fixed top-16 left-0 bottom-0 w-64 transition-transform duration-300 z-40 bg-(--ui-bg-muted) border-r-(--ui-border) border-r"
+		class="fixed top-16 left-0 bottom-0 w-64 transition-transform duration-300 z-40 bg-muted border-r-default border-r"
 		:class="{ '-translate-x-full': !isOpen }"
 	>
-		<div v-if="projectItems.length > 0" class="mb-4 overflow-auto p-4 border-b border-(--ui-border)">
+		<div v-if="projectItems.length > 0" class="mb-4 overflow-auto p-4 border-b border-default">
 			<div class="flex justify-between items-center mb-2">
-				<h2 class="text-sm font-semibold text-(--ui-text-muted)">Projects</h2>
+				<h2 class="text-sm font-semibold text-muted">Projects</h2>
 			</div>
 			<UNavigationMenu orientation="vertical" :items="projectItems" />
 			<UButton size="sm" color="neutral" variant="soft" icon="i-heroicons-plus-small" @click="handleCreateProject">
@@ -87,25 +87,25 @@ async function handleCreateProject() {
 			<div class="mb-4">
 				<template v-if="todayChats.length > 0">
 					<div class="flex justify-between items-center mb-2">
-						<h2 class="text-sm font-semibold text-(--ui-text-muted)">Today</h2>
+						<h2 class="text-sm font-semibold text-muted">Today</h2>
 					</div>
 					<UNavigationMenu orientation="vertical" :items="todayChats" />
 				</template>
 				<template v-if="weekChats.length > 0">
 					<div class="flex justify-between items-center mb-2">
-						<h2 class="text-sm font-semibold text-(--ui-text-muted)">Last week</h2>
+						<h2 class="text-sm font-semibold text-muted">Last week</h2>
 					</div>
 					<UNavigationMenu orientation="vertical" :items="weekChats" />
 				</template>
 				<template v-if="monthChats.length > 0">
 					<div class="flex justify-between items-center mb-2">
-						<h2 class="text-sm font-semibold text-(--ui-text-muted)">Last Month</h2>
+						<h2 class="text-sm font-semibold text-muted">Last Month</h2>
 					</div>
 					<UNavigationMenu orientation="vertical" :items="monthChats" />
 				</template>
 				<template v-if="olderChats.length > 0">
 					<div class="flex justify-between items-center mb-2">
-						<h2 class="text-sm font-semibold text-(--ui-text-muted)">Older</h2>
+						<h2 class="text-sm font-semibold text-muted">Older</h2>
 					</div>
 					<UNavigationMenu orientation="vertical" :items="olderChats" />
 				</template>
