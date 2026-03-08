@@ -1,14 +1,14 @@
-import { createOllama } from 'ollama-ai-provider';
+import { createOllama } from 'ollama-ai-provider-v2';
 import { generateText } from 'ai';
-import type { LanguageModelV1, Message } from 'ai';
+import type { LanguageModel, ModelMessage } from 'ai';
 
-export const createModel = () => {
+export const createModel = (): LanguageModel => {
 	const ollama = createOllama();
 	const model = useRuntimeConfig().aiModel;
 	return ollama(model);
 };
 
-export async function generateChatResponse(model: LanguageModelV1, messages: Message[]) {
+export async function generateChatResponse(model: LanguageModel, messages: ModelMessage[]) {
 	try {
 		const resp = await generateText({ model, messages });
 		return resp.text;
