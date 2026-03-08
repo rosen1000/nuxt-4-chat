@@ -103,7 +103,7 @@ watch(() => messages, pinToBottom, { deep: true });
 
 /* ===== Message Styles ===== */
 .message {
-	padding: 1rem;
+	padding: 0 1rem;
 	border-radius: var(--ui-radius);
 	transition: all 0.2s;
 }
