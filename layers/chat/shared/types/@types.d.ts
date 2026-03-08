@@ -5,7 +5,7 @@ export interface ChatMessage {
 	role: Role;
 	content: string;
 	createdAt: Date;
-	updatedAt: Data;
+	updatedAt: Date;
 }
 
 export interface Chat {
@@ -14,11 +14,11 @@ export interface Chat {
 	messages: ChatMessage[];
 	projectId?: string;
 	createdAt: Date;
-	updatedAt: Data;
+	updatedAt: Date;
 }
 
 export interface ProjectChat extends Chat {
-	projectId: string;
+	projectId?: string;
 	project: Project | null;
 }
 
@@ -26,5 +26,5 @@ export interface Project {
 	id: string;
 	name: string;
 	createdAt: Date;
-	updatedAt: Data;
+	updatedAt: Date;
 }
