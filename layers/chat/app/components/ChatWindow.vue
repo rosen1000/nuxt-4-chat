@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Chat, ChatMessage } from '~~/layers/chat/app/@types';
+import type { Chat, ChatMessage } from '~~/layers/chat/shared/types/@types';
 
 type Props = { messages: ChatMessage[]; chat: Chat; typing: boolean };
 const { chat, messages, typing } = defineProps<Props>();

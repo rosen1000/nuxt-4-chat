@@ -1,21 +1,18 @@
-import type { ChatMessage, Role } from '~~/layers/chat/app/@types';
-import useChats from './useChats';
-
 export default function useChat(chatId: string) {
 	const { chats } = useChats();
 	const chat = computed(() => chats.value.find((c) => c.id == chatId));
 	const messages = computed(() => chat.value?.messages || []);
 
-	function createMessage(message: string, role: Role) {
+	function createMessage(message: string, role: Role): ChatMessage {
 		const id = messages.value?.length.toString();
-		return { id, role, content: message } as ChatMessage;
+		return { id, role, content: message, createdAt: new Date(), updatedAt: new Date() };
 	}
 
 	async function sendMessage(message: string) {
 		if (!chat.value) return;
 		messages.value?.push(createMessage(message, 'user'));
 
-		const data = await $fetch('/api/ai', {
+		const data = await $fetch<ChatMessage>('/api/ai', {
 			method: 'post',
 			body: { messages: messages.value },
 		});

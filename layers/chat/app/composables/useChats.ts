@@ -1,6 +1,3 @@
-import type { Chat } from '~~/layers/chat/app/@types';
-import { MOCK_CHAT } from '#imports';
-
 export default function useChats() {
 	const chats = useState('chats', () => [MOCK_CHAT]);
 

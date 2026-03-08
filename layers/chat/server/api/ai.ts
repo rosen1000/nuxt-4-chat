@@ -1,4 +1,4 @@
-import type { Chat, ChatMessage } from '~~/layers/chat/app/@types';
+import type { Chat } from '~~/layers/chat/shared/types/@types';
 import { createModel, generateChatResponse } from '../services/ai-service';
 
 export default defineEventHandler(async (event) => {
@@ -13,5 +13,5 @@ export default defineEventHandler(async (event) => {
 		id,
 		role: 'assistant',
 		content: msg,
-	} as ChatMessage;
+	};
 });
