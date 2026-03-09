@@ -17,3 +17,20 @@ export async function generateChatResponse(model: LanguageModel, messages: Model
 		return (e as Error).message;
 	}
 }
+
+export async function generateChatTitle(model: LanguageModel, firstMessage: string) {
+	const response = await generateText({
+		model,
+		messages: [
+			{
+				role: 'system',
+				content: 'Summarize the message in 3 or less short words.',
+			},
+			{
+				role: 'user',
+				content: firstMessage,
+			},
+		],
+	});
+	return response;
+}
