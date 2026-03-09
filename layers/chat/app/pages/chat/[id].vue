@@ -4,7 +4,9 @@
 
 <script lang="ts" setup>
 const route = useRoute();
-const { chat, messages, sendMessage } = useChat(route.params.id as string);
+const { fetchMessages, chat, messages, sendMessage } = useChat(route.params.id as string);
+await fetchMessages();
+
 if (!chat.value) {
 	// Replace this page with home in browser history
 	await navigateTo('/', { replace: true });

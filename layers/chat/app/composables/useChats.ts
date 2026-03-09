@@ -1,5 +1,22 @@
 export default function useChats() {
-	const chats = useState('chats', () => [MOCK_CHAT]);
+	// Setup function - can't appear in follow-up function
+	// const {
+	// 	data: chats,
+	// 	execute,
+	// 	status,
+	// } = useAsyncData('chats', () => $fetch<Chat[]>('/api/chats'), {
+	// 	immediate: false, // So we don't spam requests
+	// 	default: () => [],
+	// });
+	const chats = useState<Chat[]>('chats', () => []);
+	const { data, execute, status } = useFetch<Chat[]>('/api/chats', { immediate: false, default: () => [] });
+
+	async function fetchChats() {
+		// Only when not fetching
+		if (status.value != 'idle') return;
+		await execute();
+		chats.value = data.value;
+	}
 
 	function createChat(options: { projectId?: string } = {}) {
 		const id = (chats.value.length + 1).toString();
@@ -29,5 +46,5 @@ export default function useChats() {
 		return chats.value.filter((c) => c.projectId == projectId);
 	}
 
-	return { chats, createChat, createChatAndNavigate, chatsInProject };
+	return { fetchChats, chats, createChat, createChatAndNavigate, chatsInProject };
 }

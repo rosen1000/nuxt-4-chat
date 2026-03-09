@@ -3,23 +3,32 @@ export default function useChat(chatId: string) {
 	const chat = computed(() => chats.value.find((c) => c.id == chatId));
 	const messages = computed(() => chat.value?.messages || []);
 
-	function createMessage(message: string, role: Role): ChatMessage {
-		const id = messages.value?.length.toString();
-		return { id, role, content: message, createdAt: new Date(), updatedAt: new Date() };
+	const { data, execute, status } = useFetch<ChatMessage[]>(`/api/chats/${chatId}/messages`, {
+		default: () => [],
+		immediate: false,
+	});
+
+	async function fetchMessages() {
+		if (status.value != 'idle' || !chat.value) return;
+		await execute();
+		chat.value.messages = data.value;
 	}
 
-	async function sendMessage(message: string) {
+	async function sendMessage(content: string) {
 		if (!chat.value) return;
-		messages.value?.push(createMessage(message, 'user'));
 
-		const data = await $fetch<ChatMessage>('/api/ai', {
-			method: 'post',
-			body: { messages: messages.value },
+		const message = await $fetch<ChatMessage>(`/api/chats/${chatId}/messages`, {
+			method: 'POST',
+			body: { content, role: 'user' },
 		});
 
+		messages.value.push(message);
+
+		const response = await $fetch<ChatMessage>(`/api/chats/${chatId}/messages/generate`, { method: 'POST' });
+
 		chat.value.updatedAt = new Date();
-		messages.value.push(data);
+		messages.value.push(response);
 	}
 
-	return { chat, messages, sendMessage };
+	return { fetchMessages, chat, messages, sendMessage };
 }
