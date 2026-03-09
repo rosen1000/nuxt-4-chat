@@ -10,7 +10,7 @@
 			<template v-else>
 				<div class="chat-header">
 					<h1 class="title">
-						{{ chat.title || 'Untitled chat' }}
+						<TypewriterText :text="chat.title || 'Untitled Chat'" />
 					</h1>
 				</div>
 				<div class="messages-container">
@@ -69,6 +69,8 @@ watch(() => messages, pinToBottom, { deep: true });
 	overflow-y: auto;
 	height: 100%;
 	box-sizing: border-box;
+	flex: 1 1 auto;
+	min-height: 0;
 }
 
 .chat-container {

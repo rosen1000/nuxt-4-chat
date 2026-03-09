@@ -8,5 +8,5 @@ export default defineEventHandler(async (event) => {
 	const model = createModel();
 	const title = await generateChatTitle(model, message);
 
-	updateChat(id!, { title: title.output });
+	return updateChat(id!, { title: title.output });
 });

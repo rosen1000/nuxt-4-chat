@@ -14,8 +14,20 @@ export default function useChat(chatId: string) {
 		chat.value.messages = data.value;
 	}
 
+	async function generateChatTitle(message: string) {
+		if (!chat.value) return;
+
+		const updatedChat = await $fetch<Chat>(`/api/chats/${chatId}/title`, {
+			method: 'POST',
+			body: { message },
+		});
+		chat.value.title = updatedChat.title;
+	}
+
 	async function sendMessage(content: string) {
 		if (!chat.value) return;
+
+		if (messages.value.length == 0) generateChatTitle(content);
 
 		const message = await $fetch<ChatMessage>(`/api/chats/${chatId}/messages`, {
 			method: 'POST',
