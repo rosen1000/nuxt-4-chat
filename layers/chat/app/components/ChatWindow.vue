@@ -164,6 +164,13 @@ watch(() => messages, pinToBottom, { deep: true });
 }
 
 .empty-state-card {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: fit-content;
+	max-width: 30rem;
+	margin: auto;
+	border-radius: 1rem;
 	background-color: var(--ui-bg-elevated);
 	padding: 2rem;
 	width: 100%;

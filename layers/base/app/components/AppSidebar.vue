@@ -11,7 +11,7 @@ const { projects, createProject } = useProjects();
 const { chats, chatsInProject, createChatAndNavigate } = useChats();
 
 const isCurrentProject = (projectId: string) => route.params.projectId == projectId;
-const chatsInCurrentProject = computed(() => chatsInProject(route.params.projectId as string));
+// const chatsInCurrentProject = computed(() => chatsInProject(route.params.projectId as string));
 
 function formatProjectChatItem(project: Project, chat: Chat): NavigationMenuItem {
 	return {
@@ -30,10 +30,11 @@ function formatProjectItem(project: Project) {
 		defaultOpen: isCurrent,
 	};
 
-	if (!isCurrent) return baseItem;
+	// if (!isCurrent) return baseItem;
 	return {
 		...baseItem,
-		children: chatsInCurrentProject.value.map((chat) => formatProjectChatItem(project, chat)),
+		// children: chatsInCurrentProject.value.map((chat) => formatProjectChatItem(project, chat)),
+		children: chatsInProject(project.id).map((chat) => formatProjectChatItem(project, chat)),
 	};
 }
 
