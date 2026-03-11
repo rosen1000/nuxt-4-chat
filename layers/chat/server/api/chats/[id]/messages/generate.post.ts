@@ -4,7 +4,7 @@ import { createModel, generateChatResponse } from '~~/layers/chat/server/service
 export default defineEventHandler(async (event) => {
 	const { id } = getRouterParams(event);
 
-	const history = getMessagesByChatId(id!);
+	const history = await getMessagesByChatId(id!);
 
 	const model = createModel();
 	const reply = await generateChatResponse(model, history);

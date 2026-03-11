@@ -7,4 +7,18 @@ export default defineNuxtConfig({
 	},
 
 	modules: ['@nuxt/eslint'],
+
+	nitro: {
+		storage: {
+			db: {
+				driver: 'fs',
+				base: './.data',
+			},
+		},
+	},
+
+	// Change driver in production
+	// $production: {
+	// 	nitro: { storage: { db: { driver: '' } } },
+	// },
 });
